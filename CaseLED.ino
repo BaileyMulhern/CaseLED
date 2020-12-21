@@ -1,7 +1,9 @@
 //Include needed Libraries at beginning
 #include <Arduino.h>
 #include <FastLED.h> // FastLED library for WS2812 RGB Stick http://fastled.io/
-#include "src/LedUtils/ScriptManager.h"
+#include "src/LedUtilities/ScriptManager.h"
+#include "src/LedUtilities/Effect.h"
+#include "src/LedUtilities/SolidEffect.h"
 
 
 // Interrupts on 2, 3
@@ -48,6 +50,8 @@ const uint8_t SCRIPT_LENGTH = sizeof(script) / sizeof(ScriptManager::ScriptEleme
 
 ScriptManager scriptManager(leds, NUM_LEDS);
 
+Effect effect();
+
 void setup(void)
 {
     pinMode(LED_PIN, OUTPUT);
@@ -63,6 +67,8 @@ void setup(void)
 
 void loop(void)
 {
+    effect.run();
+
     scriptManager.runScript();
 
     FastLED.show();
