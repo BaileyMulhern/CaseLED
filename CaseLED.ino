@@ -2,20 +2,20 @@
 #include <Arduino.h>
 #include <FastLED.h> // FastLED library for WS2812 RGB Stick http://fastled.io/
 #include "src/LedUtilities/ScriptManager.h"
+<<<<<<< HEAD
 #include "src/LedUtilities/Effect.h"
 #include "src/LedUtilities/SolidEffect.h"
+=======
+>>>>>>> 2f5bee87e1e37842e4c13a6018e162216fb27853
 
 
 // Interrupts on 2, 3
 // PWM on 3, 5, 6, 9, 10, 11
 #define LED_PIN         2
-
 #define BRIGHTNESS      255
 #define NUM_LEDS        72
 #define LOOP_DELAY      1
 
-volatile bool effect_switch = false;
-uint8_t effect_index = 0;
 CRGB leds[NUM_LEDS];
 
 ScriptManager::ScriptElement script[] = {
@@ -46,8 +46,6 @@ ScriptManager::ScriptElement script[] = {
     {EffectManager::EFFECT_RAINBOW_EVEN_FAST, 0, 30, 0},
 };
 
-const uint8_t SCRIPT_LENGTH = sizeof(script) / sizeof(ScriptManager::ScriptElement);
-
 ScriptManager scriptManager(leds, NUM_LEDS);
 
 Effect effect();
@@ -60,7 +58,7 @@ void setup(void)
 
     FastLED.setBrightness(BRIGHTNESS);
 
-    scriptManager.loadScript(script, SCRIPT_LENGTH);
+    scriptManager.loadScript(script);
     
     Serial.begin(115200);
 }
