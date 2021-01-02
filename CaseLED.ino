@@ -14,7 +14,11 @@
 CRGB leds[NUM_LEDS];
 
 ScriptManager::ScriptElement script[] = {
-    {EffectManager::EFFECT_THEATRE_CHASE_RED_SLOW, 0, 5, 0},
+    {EffectManager::EFFECT_SOLID_MAGENTA, 0, 1, 0},
+    {EffectManager::EFFECT_SOLID_GREEN, 0, 1, 0},
+    {EffectManager::EFFECT_SOLID_RED, 0, 1, 0},
+    {EffectManager::EFFECT_TEST, 0, 0, 1},
+    /*{EffectManager::EFFECT_THEATRE_CHASE_RED_SLOW, 0, 5, 0},
     {EffectManager::EFFECT_THEATRE_CHASE_GREEN_SLOW, 0, 5, 0},
     {EffectManager::EFFECT_THEATRE_CHASE_BLUE_SLOW, 0, 5, 0},
     {EffectManager::EFFECT_THEATRE_CHASE_CYAN_SLOW, 0, 5, 0},
@@ -38,22 +42,25 @@ ScriptManager::ScriptElement script[] = {
     {EffectManager::EFFECT_THEATRE_CHASE_RAINBOW_FADE_FAST, 0, 10, 0},
     {EffectManager::EFFECT_THEATRE_CHASE_RAINBOW_EVEN_FAST, 0, 10, 0},
 
-    {EffectManager::EFFECT_RAINBOW_EVEN_FAST, 0, 30, 0},
+    {EffectManager::EFFECT_RAINBOW_EVEN_FAST, 0, 30, 0},*/
 };
 
 ScriptManager scriptManager(leds, NUM_LEDS);
 
+uint8_t length = sizeof(script) / sizeof(script[0]);
+
 void setup(void)
 {
     pinMode(LED_PIN, OUTPUT);
-        
+
     FastLED.addLeds<NEOPIXEL, LED_PIN>(leds, NUM_LEDS);
 
     FastLED.setBrightness(BRIGHTNESS);
 
-    scriptManager.loadScript(script);
+    scriptManager.loadScript(script, length);
     
     Serial.begin(115200);
+    Serial.println(length);
 }
 
 void loop(void)
