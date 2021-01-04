@@ -2,6 +2,7 @@
 #include <Arduino.h>
 #include <FastLED.h> // FastLED library for WS2812 RGB Stick http://fastled.io/
 #include "src/LedUtilities/ScriptManager.h"
+#include "src/LedUtilities/MarqueeEffect.h"
 
 
 // Interrupts on 2, 3
@@ -14,23 +15,23 @@
 CRGB leds[NUM_LEDS];
 
 ScriptManager::ScriptElement script[] = {
-    {EffectManager::THEATRE_CHASE_RED_SLOW, 0, 5, 0},
-    {EffectManager::THEATRE_CHASE_GREEN_SLOW, 0, 5, 0},
-    {EffectManager::THEATRE_CHASE_BLUE_SLOW, 0, 5, 0},
-    {EffectManager::THEATRE_CHASE_CYAN_SLOW, 0, 5, 0},
-    {EffectManager::THEATRE_CHASE_MAGENTA_SLOW, 0, 5, 0},
-    {EffectManager::THEATRE_CHASE_YELLOW_SLOW, 0, 5, 0},
+    {EffectManager::THEATRE_CHASE, CRGB::Red, EffectManager::SLOW, 0, 5, 0},
+    {EffectManager::THEATRE_CHASE, CRGB::Green, EffectManager::SLOW, 0, 5, 0},
+    {EffectManager::THEATRE_CHASE, CRGB::Blue, EffectManager::SLOW, 0, 5, 0},
+    {EffectManager::THEATRE_CHASE, CRGB::Cyan, EffectManager::SLOW, 0, 5, 0},
+    {EffectManager::THEATRE_CHASE, CRGB::Magenta, EffectManager::SLOW, 0, 5, 0},
+    {EffectManager::THEATRE_CHASE, CRGB::Yellow, EffectManager::SLOW, 0, 5, 0},
 
-    {EffectManager::RAINBOW_EVEN_FAST, 0, 30, 0},
+    {EffectManager::RAINBOW_FADE, CRGB::Red, EffectManager::SLOW, 0, 30, 0},
 
-    {EffectManager::THEATRE_CHASE_RED_FAST, 0, 5, 0},
-    {EffectManager::THEATRE_CHASE_GREEN_FAST, 0, 5, 0},
-    {EffectManager::THEATRE_CHASE_BLUE_FAST, 0, 5, 0},
-    {EffectManager::THEATRE_CHASE_CYAN_FAST, 0, 5, 0},
-    {EffectManager::THEATRE_CHASE_MAGENTA_FAST, 0, 5, 0},
-    {EffectManager::THEATRE_CHASE_YELLOW_FAST, 0, 5, 0},
+    {EffectManager::THEATRE_CHASE, CRGB::Red, EffectManager::FAST, 0, 5, 0},
+    {EffectManager::THEATRE_CHASE, CRGB::Green, EffectManager::FAST, 0, 5, 0},
+    {EffectManager::THEATRE_CHASE, CRGB::Blue, EffectManager::FAST, 0, 5, 0},
+    {EffectManager::THEATRE_CHASE, CRGB::Cyan, EffectManager::FAST, 0, 5, 0},
+    {EffectManager::THEATRE_CHASE, CRGB::Magenta, EffectManager::FAST, 0, 5, 0},
+    {EffectManager::THEATRE_CHASE, CRGB::Yellow, EffectManager::FAST, 0, 5, 0},
 
-    {EffectManager::RAINBOW_EVEN_FAST, 0, 30, 0},
+    {EffectManager::RAINBOW_EVEN, CRGB::Red, EffectManager::FAST, 0, 30, 0},
 };
 
 ScriptManager scriptManager(leds, NUM_LEDS);
@@ -56,6 +57,4 @@ void loop(void)
     scriptManager.runScript();
 
     FastLED.show();
-
-    delay(LOOP_DELAY);
 }
