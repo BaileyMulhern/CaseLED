@@ -14,35 +14,23 @@
 CRGB leds[NUM_LEDS];
 
 ScriptManager::ScriptElement script[] = {
-    {EffectManager::EFFECT_SOLID_MAGENTA, 0, 1, 0},
-    {EffectManager::EFFECT_SOLID_GREEN, 0, 1, 0},
-    {EffectManager::EFFECT_SOLID_RED, 0, 1, 0},
-    {EffectManager::EFFECT_TEST, 0, 0, 1},
-    /*{EffectManager::EFFECT_THEATRE_CHASE_RED_SLOW, 0, 5, 0},
-    {EffectManager::EFFECT_THEATRE_CHASE_GREEN_SLOW, 0, 5, 0},
-    {EffectManager::EFFECT_THEATRE_CHASE_BLUE_SLOW, 0, 5, 0},
-    {EffectManager::EFFECT_THEATRE_CHASE_CYAN_SLOW, 0, 5, 0},
-    {EffectManager::EFFECT_THEATRE_CHASE_MAGENTA_SLOW, 0, 5, 0},
-    {EffectManager::EFFECT_THEATRE_CHASE_YELLOW_SLOW, 0, 5, 0},
+    {EffectManager::THEATRE_CHASE_RED_SLOW, 0, 5, 0},
+    {EffectManager::THEATRE_CHASE_GREEN_SLOW, 0, 5, 0},
+    {EffectManager::THEATRE_CHASE_BLUE_SLOW, 0, 5, 0},
+    {EffectManager::THEATRE_CHASE_CYAN_SLOW, 0, 5, 0},
+    {EffectManager::THEATRE_CHASE_MAGENTA_SLOW, 0, 5, 0},
+    {EffectManager::THEATRE_CHASE_YELLOW_SLOW, 0, 5, 0},
 
-    {EffectManager::EFFECT_THEATRE_CHASE_RAINBOW_FILL_SLOW, 0, 10, 0},
-    {EffectManager::EFFECT_THEATRE_CHASE_RAINBOW_FADE_SLOW, 0, 10, 0},
-    {EffectManager::EFFECT_THEATRE_CHASE_RAINBOW_EVEN_SLOW, 0, 10, 0},
+    {EffectManager::RAINBOW_EVEN_FAST, 0, 30, 0},
 
-    {EffectManager::EFFECT_RAINBOW_EVEN_FAST, 0, 30, 0},
+    {EffectManager::THEATRE_CHASE_RED_FAST, 0, 5, 0},
+    {EffectManager::THEATRE_CHASE_GREEN_FAST, 0, 5, 0},
+    {EffectManager::THEATRE_CHASE_BLUE_FAST, 0, 5, 0},
+    {EffectManager::THEATRE_CHASE_CYAN_FAST, 0, 5, 0},
+    {EffectManager::THEATRE_CHASE_MAGENTA_FAST, 0, 5, 0},
+    {EffectManager::THEATRE_CHASE_YELLOW_FAST, 0, 5, 0},
 
-    {EffectManager::EFFECT_THEATRE_CHASE_RED_FAST, 0, 5, 0},
-    {EffectManager::EFFECT_THEATRE_CHASE_GREEN_FAST, 0, 5, 0},
-    {EffectManager::EFFECT_THEATRE_CHASE_BLUE_FAST, 0, 5, 0},
-    {EffectManager::EFFECT_THEATRE_CHASE_CYAN_FAST, 0, 5, 0},
-    {EffectManager::EFFECT_THEATRE_CHASE_MAGENTA_FAST, 0, 5, 0},
-    {EffectManager::EFFECT_THEATRE_CHASE_YELLOW_FAST, 0, 5, 0},
-
-    {EffectManager::EFFECT_THEATRE_CHASE_RAINBOW_FILL_FAST, 0, 10, 0},
-    {EffectManager::EFFECT_THEATRE_CHASE_RAINBOW_FADE_FAST, 0, 10, 0},
-    {EffectManager::EFFECT_THEATRE_CHASE_RAINBOW_EVEN_FAST, 0, 10, 0},
-
-    {EffectManager::EFFECT_RAINBOW_EVEN_FAST, 0, 30, 0},*/
+    {EffectManager::RAINBOW_EVEN_FAST, 0, 30, 0},
 };
 
 ScriptManager scriptManager(leds, NUM_LEDS);
