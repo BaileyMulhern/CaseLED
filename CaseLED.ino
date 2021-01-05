@@ -2,7 +2,6 @@
 #include <Arduino.h>
 #include <FastLED.h> // FastLED library for WS2812 RGB Stick http://fastled.io/
 #include "src/LedUtilities/ScriptManager.h"
-#include "src/LedUtilities/MarqueeEffect.h"
 
 
 // Interrupts on 2, 3
