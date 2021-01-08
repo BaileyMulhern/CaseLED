@@ -15,6 +15,9 @@
 CRGB leds[NUM_LEDS];
 
 ScriptManager::ScriptElement script[] = {
+    {EffectManager::THEATRE_CHASE_2, CRGB::Cyan, EffectManager::MEDIUM, 0, 5, 0},
+    {EffectManager::THEATRE_CHASE_3, CRGB::Blue, EffectManager::MEDIUM, 0, 5, 0},
+
     {EffectManager::THEATRE_CHASE, CRGB::Red, EffectManager::SLOW, 0, 5, 0},
     {EffectManager::THEATRE_CHASE, CRGB::Green, EffectManager::SLOW, 0, 5, 0},
     {EffectManager::THEATRE_CHASE, CRGB::Blue, EffectManager::SLOW, 0, 5, 0},
