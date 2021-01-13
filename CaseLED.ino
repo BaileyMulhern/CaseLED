@@ -2,7 +2,6 @@
 #include <Arduino.h>
 #include <FastLED.h> // FastLED library for WS2812 RGB Stick http://fastled.io/
 #include "src/LedUtilities/ScriptManager.h"
-#include "src/LedUtilities/MarqueeEffect.h"
 
 
 // Interrupts on 2, 3
@@ -15,26 +14,26 @@
 CRGB leds[NUM_LEDS];
 
 ScriptManager::ScriptElement script[] = {
-    {EffectManager::THEATRE_CHASE_2, CRGB::Cyan, EffectManager::MEDIUM, 0, 5, 0},
-    {EffectManager::THEATRE_CHASE_3, CRGB::Blue, EffectManager::MEDIUM, 0, 5, 0},
 
-    {EffectManager::THEATRE_CHASE, CRGB::Red, EffectManager::SLOW, 0, 5, 0},
+	{EffectManager::FIRE, CRGB::Red, EffectManager::MEDIUM, 0, 0, 1},
+
+    {EffectManager::SMOOTH_CHASE, CRGB::Cyan, EffectManager::MEDIUM, 0, 5, 0},
+    {EffectManager::SMOOTH_CHASE_2, CRGB::Cyan, EffectManager::FAST, 0, 5, 0},
+    {EffectManager::SMOOTH_CHASE_3, CRGB::Cyan, EffectManager::VERY_FAST, 0, 5, 0},
+    {EffectManager::SMOOTH_CHASE_4, CRGB::Cyan, EffectManager::VERY_FAST, 0, 5, 0},
+    
+    {EffectManager::THEATRE_CHASE, CRGB::Blue, EffectManager::MEDIUM, 0, 5, 0},
+    {EffectManager::THEATRE_CHASE_2, CRGB::Blue, EffectManager::FAST, 0, 5, 0},
+    {EffectManager::THEATRE_CHASE_3, CRGB::Blue, EffectManager::FAST, 0, 5, 0},
+    {EffectManager::THEATRE_CHASE_4, CRGB::Blue, EffectManager::FAST, 0, 5, 0},
+       
+    {EffectManager::THEATRE_CHASE, CRGB::Red, EffectManager::VERY_SLOW, 0, 5, 0},
     {EffectManager::THEATRE_CHASE, CRGB::Green, EffectManager::SLOW, 0, 5, 0},
-    {EffectManager::THEATRE_CHASE, CRGB::Blue, EffectManager::SLOW, 0, 5, 0},
-    {EffectManager::THEATRE_CHASE, CRGB::Cyan, EffectManager::SLOW, 0, 5, 0},
-    {EffectManager::THEATRE_CHASE, CRGB::Magenta, EffectManager::SLOW, 0, 5, 0},
-    {EffectManager::THEATRE_CHASE, CRGB::Yellow, EffectManager::SLOW, 0, 5, 0},
+    
+    {EffectManager::RAINBOW_EVEN, CRGB::Red, EffectManager::MEDIUM, 0, 10, 0},
+    {EffectManager::RAINBOW_FADE, CRGB::Red, EffectManager::VERY_FAST, 0, 10, 0},
 
-    {EffectManager::RAINBOW_FADE, CRGB::Red, EffectManager::SLOW, 0, 30, 0},
-
-    {EffectManager::THEATRE_CHASE, CRGB::Red, EffectManager::FAST, 0, 5, 0},
-    {EffectManager::THEATRE_CHASE, CRGB::Green, EffectManager::FAST, 0, 5, 0},
-    {EffectManager::THEATRE_CHASE, CRGB::Blue, EffectManager::FAST, 0, 5, 0},
-    {EffectManager::THEATRE_CHASE, CRGB::Cyan, EffectManager::FAST, 0, 5, 0},
-    {EffectManager::THEATRE_CHASE, CRGB::Magenta, EffectManager::FAST, 0, 5, 0},
-    {EffectManager::THEATRE_CHASE, CRGB::Yellow, EffectManager::FAST, 0, 5, 0},
-
-    {EffectManager::RAINBOW_EVEN, CRGB::Red, EffectManager::FAST, 0, 30, 0},
+    
 };
 
 ScriptManager scriptManager(leds, NUM_LEDS);
@@ -52,7 +51,6 @@ void setup(void)
     scriptManager.loadScript(script, length);
     
     Serial.begin(115200);
-    Serial.println(length);
 }
 
 void loop(void)
